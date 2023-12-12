@@ -1,7 +1,7 @@
 project(libp2p)
 cmake_minimum_required(VERSION 2.8)
 
-set (CMAKE_CXX_STANDARD 11)
+set (CMAKE_CXX_STANDARD 20)
 option(SSL_ENABLED "SSL support (OpenSSL is required)" ON)
 option(HTTP_ENABLED "HTTP protocol support" ON)
 option(ZMTP_ENABLED "ZMTP (zmq) protocol support" ON)
