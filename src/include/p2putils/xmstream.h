@@ -3,6 +3,7 @@
 
 #include "p2putils/strExtras.h"
 #include <string.h>
+#include <cstdint>
 
 class xmstream {
 private:
