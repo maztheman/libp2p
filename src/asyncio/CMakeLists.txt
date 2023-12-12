@@ -35,16 +35,18 @@ if (CMAKE_SYSTEM_NAME STREQUAL "Linux" OR CMAKE_SYSTEM_NAME STREQUAL "FreeBSD")
 endif ()
 
 add_library(asyncio-0.5 STATIC ${Sources})
+target_link_libraries(asyncio-0.5 PUBLIC libp2p_project_options)
+
 if (HTTP_ENABLED)
   add_dependencies(asyncio-0.5 p2putils)
 endif()
 
 if (CMAKE_SYSTEM_NAME STREQUAL "Linux" OR CMAKE_SYSTEM_NAME STREQUAL "FreeBSD")
-  target_link_libraries(asyncio-0.5 rt)
+  target_link_libraries(asyncio-0.5 PUBLIC rt)
 endif()
 
 if (CMAKE_SYSTEM_NAME STREQUAL "QNX")
-  target_link_libraries(asyncio-0.4 socket)
+  target_link_libraries(asyncio-0.5 PUBLIC socket)
 endif()
 
 install(

@@ -3,6 +3,7 @@
 #include <map>
 #include <vector>
 #include <time.h>
+#include <atomic>
 
 class p2pNode;
 class p2pPeer;
@@ -99,7 +100,7 @@ private:
 
   // client data
   p2pPeer *_lastActivePeer;
-  volatile unsigned _lastId;
+  std::atomic<unsigned> _lastId;
   std::list<p2pEventHandler> _connectionWaitHandlers;
   
   // node data

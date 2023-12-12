@@ -23,6 +23,7 @@ if (CMAKE_SYSTEM_NAME STREQUAL "Linux" OR CMAKE_SYSTEM_NAME STREQUAL "FreeBSD")
 endif ()
 
 add_library(asyncioextras-0.5 STATIC ${Sources})
+target_link_libraries(asyncioextras-0.5 PUBLIC libp2p_project_options)
 
 install(
   TARGETS asyncioextras-0.5
