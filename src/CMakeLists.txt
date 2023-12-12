@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 2.8)
 set(CMAKE_CXX_FLAGS "-std=c++11")
 
 if (WIN32)
-  include_directories(${CMAKE_SOURCE_DIR}/msvc/include)
+  include_directories(${CMAKE_CURRENT_SOURCE_DIR}/msvc/include)
   set(OS_WINDOWS 1)
 elseif(CMAKE_SYSTEM_NAME STREQUAL "Linux")
   set(OS_LINUX 1)
@@ -33,14 +33,14 @@ endif(MSVC)
 include(TestBigEndian)
 TEST_BIG_ENDIAN(IS_BIGENDIAN)
 configure_file(
-  ${CMAKE_SOURCE_DIR}/include/config.h.in
-  ${CMAKE_BINARY_DIR}/include/config.h
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/config.h.in
+  ${CMAKE_CURRENT_BINARY_DIR}/include/config.h
 )
 
 include_directories(
-  ${CMAKE_SOURCE_DIR}/include
-  ${CMAKE_SOURCE_DIR}/config4cpp/include
-  ${CMAKE_BINARY_DIR}/include
+  ${CMAKE_CURRENT_SOURCE_DIR}/include
+  ${CMAKE_CURRENT_SOURCE_DIR}/config4cpp/include
+  ${CMAKE_CURRENT_BINARY_DIR}/include
 )
 
 option(SSL_ENABLED "SSL support (OpenSSL is required)" ON)
